@@ -32,7 +32,6 @@ public class WeiboPictureServieImpl implements WeiboPictureServie{
 	public boolean uploadWeiboPicture(String weiboId, MultipartFile multipartFile) {
 		// TODO Auto-generated method stub
 		boolean fig;//judge weather success
-	    //WeiboDAO weiboDao = new WeiboDAO();
 		// create the path
 		String path = "C:\\Users\\liu\\Desktop\\map_12_21_1\\img";
 		// get file name
@@ -42,7 +41,7 @@ public class WeiboPictureServieImpl implements WeiboPictureServie{
 		if (!targetFile.exists()) {
 			targetFile.mkdirs();
 		}
-		// ±£´æ
+		// Save
 		try {
 			multipartFile.transferTo(targetFile);
 			//Save url
@@ -52,6 +51,4 @@ public class WeiboPictureServieImpl implements WeiboPictureServie{
 			e.printStackTrace();
 		}
 	}
-	
-	
 }
