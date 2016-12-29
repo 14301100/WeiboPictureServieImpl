@@ -15,15 +15,14 @@ import cn.edu.bjtu.weibo.dao.impl.*;
 public class WeiboPictureServieImpl implements WeiboPictureServie{
 	
 	@Autowired
-	private WeiboDAO weiboDao;
+	private WeiboDAO weiboDAO;
 	
 	@Override
 	public List<Picture> getWeiboPictureList(String weiboId) {
 		// TODO Auto-generated method stub
-		//WeiboDAO weiboDao = new WeiboDAO();
 		List<Picture> pic = new LinkedList<Picture>();
-		for(int i = 0;i < weiboDao.getWeiboPicurlOr(weiboId).size();i++) {
-			pic.get(i).setPicurl(weiboDao.getWeiboPicurlOr(weiboId).get(i));
+		for(int i = 0;i < weiboDAO.getWeiboPicurlOr(weiboId).size();i++) {
+			pic.get(i).setPicurl(weiboDAO.getWeiboPicurlOr(weiboId).get(i));
 		}
 		return pic;
 	}
@@ -45,7 +44,7 @@ public class WeiboPictureServieImpl implements WeiboPictureServie{
 		try {
 			multipartFile.transferTo(targetFile);
 			//Save url
-			fig = weiboDao.insertWeiboPicture(weiboId,url); 
+			fig = weiboDAO.insertWeiboPicture(weiboId,url); 
 			return fig;
 		} catch (Exception e) {
 			e.printStackTrace();
